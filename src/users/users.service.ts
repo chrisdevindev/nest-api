@@ -15,7 +15,7 @@ export class UsersService {
 
     async createAdminUser(createUserDto: CreateUserDto): Promise<User>{
         if(createUserDto.password != createUserDto.passwordConfirmation){
-            throw new UnprocessableEntityException('As senhas não conferem')
+            throw new UnprocessableEntityException('As senhas são diferentes')
         }else{
             return this.UserRepository.createUser(createUserDto, UserRole.ADMIN)
         }
