@@ -4,7 +4,6 @@ import { UserRepository } from './users.repository';
 import { CreateUserDto } from './dtos/create-user.dto'
 import { User } from './user.entity'
 import { UserRole } from './user-roles.enum'
-import { create } from 'domain';
  
 @Injectable()
 export class UsersService {
