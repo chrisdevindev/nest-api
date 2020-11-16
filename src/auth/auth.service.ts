@@ -19,4 +19,6 @@ export class AuthService {
             return await this.userRepository.createUser(createUserDto, UserRole.USER)
         }
     }
+
+    
 }
