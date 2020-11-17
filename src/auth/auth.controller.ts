@@ -1,6 +1,7 @@
 import { Body, Controller, Post, ValidationPipe } from '@nestjs/common';
 import { CreateUserDto } from 'src/users/dtos/create-user.dto';
 import { AuthService } from './auth.service';
+import { CredentialsDto } from './dtos/credentials.dto';
 
 @Controller('auth')
 export class AuthController {
@@ -14,5 +15,12 @@ export class AuthController {
             message: 'Cadastro realizado com sucesso!'
         }
     }
+
+    @Post('/signin')
+    async signIn(
+        @Body(ValidationPipe) credentialsDto: CredentialsDto): Promise<{ token: string }> {
+        return await this.authService.signIn(credentialsDto)
+    }
+
 }
 
